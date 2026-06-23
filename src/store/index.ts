@@ -10,17 +10,13 @@ export const StoreProvider = ({ children }: { children: React.ReactNode }) => {
 
   const dispatch = (action: { type: string; [key: string]: any }) => {
     if (action.type === 'SET_SCREEN') {
-      setState((prev) => ({ ...prev, screen: action.screen }));
+      setState(prev => ({ ...prev, screen: action.screen }));
     } else if (action.type === 'SIGNUP') {
-      setState((prev) => ({ ...prev, user: action.user }));
+      setState(prev => ({ ...prev, user: action.user }));
     }
   };
 
-  return (
-    <StoreContext.Provider value={[state, dispatch]}>
-      {children}
-    </StoreContext.Provider>
-  );
+  return React.createElement(StoreContext.Provider, { value: { state, dispatch } }, children);
 };
 
 export const useStore = () => {
