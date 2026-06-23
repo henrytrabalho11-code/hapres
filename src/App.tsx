@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { StoreProvider, useStore } from './store';
+import { StoreProvider, useStore } from './store/index';
 import { AuthProvider, useAuth } from './lib/auth';
 import { supabase, isAdminIdentity, extractPhone } from './lib/supabase';
 import { Onboarding } from './screens/Onboarding';
